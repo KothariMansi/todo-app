@@ -4,6 +4,8 @@
 #from functions import get_todos,write_todo
 import functions
 import time
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print("It is",now)
 print("Hello")
 while True:
     user_action = input('Type add, show, edit, complete or exit ')
@@ -62,3 +64,15 @@ while True:
         #print('Hey, You entered an unknown commmand.')
         print('THe command is not valid.')
 print('bye!!')
+#May
+#Date : Days done in a day
+# 03 == 4 days(1,2,3,4)
+# 04 == 1 day(5)
+# 05 == 3 days(6,7,8)
+# 06 == 1 days(9)
+# 07 == 2 days(10,11)
+# 08 == 2 day(12,13)
+# 09 == 1 day(14)
+# 12 == 1 day(15)
+# 18 == 1 day(16)
+# 19 == 1 day(17)
