@@ -19,7 +19,7 @@ label = sg.Text("Type in a To-Do ")
 input_box = sg.InputText(tooltip="Enter Todo", key='todo')
 
 add_button = sg.Button(key="Add", size=2, image_source='add.png', mouseover_colors='Purple')
-list_box = sg.Listbox(values=functions.get_todos('files/todoss.txt'), key='todos',
+list_box = sg.Listbox(values=functions.get_todos('todoss.txt'), key='todos',
                       enable_events=True, size=[45, 10])
 
 edit_button = sg.Button("Edit")
@@ -37,24 +37,24 @@ window = sg.Window("My To-Do App",
 
 while True:
     event, values = window.read()
-    print(event,values)
+    print(event, values)
     window['clock'].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
 
     match event:
         case "Add":
-            todos = functions.get_todos('files/todoss.txt')
+            todos = functions.get_todos('todoss.txt')
             new_value = values['todo']+'\n'
             todos.append(new_value)
-            functions.write_todo(todos, 'files/todoss.txt')
+            functions.write_todo(todos, 'todoss.txt')
             window['todos'].update(values=todos)
         case 'todos':
             window['todo'].update(value=values['todos'][0])
         case 'Complete':
             try:
-                todos = functions.get_todos('files/todoss.txt')
+                todos = functions.get_todos('todoss.txt')
                 todo_to_complete = values['todos'][0]
                 todos.remove(todo_to_complete)
-                functions.write_todo(todos,'files/todoss.txt')
+                functions.write_todo(todos,'todoss.txt')
                 window['todos'].update(values=todos)
                 window['todo'].update(value='')
             except IndexError:
@@ -63,10 +63,10 @@ while True:
             try:
                 todo_to_edit = values['todos'][0]
                 new_todo = values['todo']
-                todos = functions.get_todos('files/todoss.txt')
+                todos = functions.get_todos('todoss.txt')
                 index = todos.index(todo_to_edit)
                 todos[index] = new_todo + '\n'
-                functions.write_todo(todos,'files/todoss.txt')
+                functions.write_todo(todos,'todoss.txt')
                 window['todos'].update(values=todos)
             except IndexError:
                 sg.popup("Please Select an Item First")
