@@ -1,3 +1,9 @@
+import os
+
+if not os.path.exists('files/todoss.txt'):
+    with open('files/todoss.txt', 'w') as file:
+        pass
+
 FILEPATH = 'files/todoss.txt'
 
 def get_todos(file_path=FILEPATH):

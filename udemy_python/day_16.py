@@ -10,7 +10,7 @@ window = sg.Window("File Compressor",
                    layout=[[label],
                            [option1], [option2], [option3], [option4]
                            ])
- 
+
 window.read()
 window.close()
 ###########
@@ -25,7 +25,7 @@ inches_input = sg.InputText()
 convertor = sg.Button("Convertor")
 
 
-window = sg.Window("Convertor",layout=[[feet_text,feet_input],[inches_text,inches_input],[convertor]])
+window = sg.Window("Convertor", layout=[[feet_text,feet_input],[inches_text,inches_input],[convertor]])
 
 window.read()
 window.close()
